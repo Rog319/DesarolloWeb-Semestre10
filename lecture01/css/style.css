@@ -1,0 +1,107 @@
+/* Desarrollo Web 1 */
+/* Nombre Práctica: Hola Mundo */
+/* Autor/a: Rogelio Jesus Chavez Solorio*/
+/* Fecha de elaboración: 08-02-2023*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.mx {
+  color: rgb(29, 131, 214);
+  font-size: 250px;
+  position: absolute;
+  top: 120px;
+  left: 650px;
+}
+.us {
+  color: rgb(201, 234, 18);
+  font-size: 160px;
+  font-weight: 400;
+  position: absolute;
+  top: 270px;
+  left: 200px;
+}
+.jp {
+  color: rgb(206, 12, 109);
+  -webkit-text-stroke: 2px white;
+  font-size: 80px;
+  position: absolute;
+  top: 270px;
+  left: 980px;
+}
+
+.it {
+  color: rgb(66, 205, 24);
+  font-size: 100px;
+  font-weight: 400;
+  position: absolute;
+  top: 120px;
+  left: 1150px;
+}
+.hw {
+  color: rgb(231, 125, 19);
+  -webkit-text-stroke: 2px white;
+  z-index: -1;
+  font-size: 180px;
+  position: absolute;
+  top: 400px;
+  left: 160px;
+}
+
+.ru {
+  color: rgb(19, 76, 231);
+  font-size: 100px;
+  font-weight: 400;
+  position: absolute;
+  top: 200px;
+  left: 250px;
+}
+
+.ko {
+  color: rgb(231, 19, 143);
+  font-size: 30px;
+  font-weight: 400;
+  position: absolute;
+  top: 135px;
+  left: 1000px;
+}
+
+.po {
+  color: rgb(130, 14, 198);
+  -webkit-text-stroke: 2px white;
+  z-index: initial;
+  font-size: 200px;
+  font-weight: 400;
+  position: absolute;
+  top: 320px;
+  left: 70px;
+}
+
+.hi {
+  color: rgb(40, 191, 242);
+  font-size: 120px;
+  font-weight: 400;
+  position: absolute;
+  top: 90px;
+  left: 550px;
+}
+
+.he {
+  color: rgb(40, 242, 154);
+  font-size: 80px;
+  font-weight: 400;
+  position: absolute;
+  top: 650px;
+  left: 550px;
+}
+
+.sw {
+  color: rgb(40, 242, 40);
+  font-size: 60px;
+  font-weight: 400;
+  position: absolute;
+  top: 620px;
+  left: 780px;
+}
