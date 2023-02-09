@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: antiquewhite;
+  font-family: 'Montserrat', sans-serif;
+}
+.titulo {
+  background-color: #ff9100;
+  padding: 15px 0 5px 0;
+}
+
+.titulo > h1 {
+  text-align: center;
+  font-size: 38px;
+}
+
+.contenido {
+  background-color: #5a189a;
+  color: #fff;
+  margin: 10px 30px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.contenido--objetivo {
+  font-size: 28px;
+  text-align: center;
+  padding: 5px;
+}
+
+.contenido--texto_objetivo {
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px 50px;
+  background-color: rgb(0, 153, 255);
+  border-radius: 10px;
+}
+
+.contenido--texto2 {
+  font-size: 18px;
+  padding: 5px;
+  margin: 5px 50px;
+  background-color: rgb(5, 95, 154);
+  border-radius: 10px;
+}
+
+/* Paleta https://coolors.co/palette/ff6d00-ff7900-ff8500-ff9100-ff9e00-240046-3c096c-5a189a-7b2cbf-9d4edd */
