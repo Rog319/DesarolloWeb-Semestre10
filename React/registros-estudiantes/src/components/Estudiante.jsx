@@ -1,15 +1,15 @@
 const Estudiante = ({
   estudiante,
   setEstudiante,
-  setListaEstudiantes,
-  estudianteEliminar
+  setListaEstudiantes
 }) => {
   const { nombre, carrera, semestre, promedio } = estudiante
 
   const handleDelete = () => {
+    const estudianteEliminar = estudiante
     setListaEstudiantes((nuevaListaEstudiantes) => {
       return nuevaListaEstudiantes.filter(
-        (element) => element !== estudianteEliminar
+        (estudianteAux) => estudianteAux.id !== estudianteEliminar.id
       )
     })
   }

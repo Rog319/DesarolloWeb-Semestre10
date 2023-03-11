@@ -8,13 +8,21 @@ const Formulario = ({ setListaEstudiantes, listaEstudiantes, estudiante }) => {
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    llenarCampos(
-      estudiante.nombre,
-      estudiante.carrera,
-      estudiante.semestre,
-      estudiante.promedio
-    )
+    if (Object.keys(estudiante).length > 0) {
+      llenarCampos(
+        estudiante.nombre,
+        estudiante.carrera,
+        estudiante.semestre,
+        estudiante.promedio
+      )
+    }
   }, [estudiante])
+
+  const generarID = () => {
+    const fecha = Date.now().toString(36)
+    const random = Math.random().toString(36).substring(2)
+    return fecha + random
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -36,21 +44,32 @@ const Formulario = ({ setListaEstudiantes, listaEstudiantes, estudiante }) => {
       semestre,
       promedio
     }
-    if (Object.keys(estudiante).length !== 0) {
-      listaEstudiantes.forEach((element, index) => {
-        if (Object.is(element, estudiante)) {
-          setListaEstudiantes((nuevaListaEstudiantes) => {
-            return nuevaListaEstudiantes.map((element, i) => {
-              return i === index ? (element = estudianteGuardado) : element
-            })
-          })
-          limpiarCampos()
-        }
-      })
+    // if (Object.keys(estudiante).length !== 0) {
+    //   listaEstudiantes.forEach((element, index) => {
+    //     if (Object.is(element, estudiante)) {
+    //       setListaEstudiantes((nuevaListaEstudiantes) => {
+    //         return nuevaListaEstudiantes.map((element, i) => {
+    //           return i === index ? (element = estudianteGuardado) : element
+    //         })
+    //       })
+    //       limpiarCampos()
+    //     }
+    //   })
+    // } else {
+    //   setListaEstudiantes([...listaEstudiantes, estudianteGuardado])
+    //   limpiarCampos()
+    // }
+
+    if (estudiante.id) {
+      estudianteGuardado.id = estudiante.id
+      const estudiantesActualizados = listaEstudiantes.map(estudianteState => estudianteState.id === estudiante.id ? estudianteGuardado : estudianteState)
+      setListaEstudiantes(estudiantesActualizados)
     } else {
+      estudianteGuardado.id = generarID()
       setListaEstudiantes([...listaEstudiantes, estudianteGuardado])
-      limpiarCampos()
     }
+
+    limpiarCampos()
   }
 
   const limpiarCampos = () => {
