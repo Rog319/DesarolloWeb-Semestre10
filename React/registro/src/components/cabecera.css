@@ -1,0 +1,12 @@
+.cabecera {
+  background-color: var(--rosa);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-shadow: 4px 3px 12px -1px rgba(107, 99, 99, 0.51);
+  -webkit-box-shadow: 4px 3px 12px -1px rgba(107, 99, 99, 0.51);
+  -moz-box-shadow: 4px 3px 12px -1px rgba(107, 99, 99, 0.51);
+}
+.cabecera h1 {
+  margin: 0;
+}

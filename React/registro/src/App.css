@@ -1,0 +1,8 @@
+.contenido {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contenido--formulario {
+  background-color: var(--morado);
+}

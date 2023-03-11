@@ -1,0 +1,9 @@
+.container--registros {
+  background-color: var(--azul-cielo);
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.container--registros > h1 {
+  text-align: center;
+}
