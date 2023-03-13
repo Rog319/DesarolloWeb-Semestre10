@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const Formulario = ({ setListaEstudiantes, listaEstudiantes, estudiante }) => {
+const Formulario = ({ setListaEstudiantes, listaEstudiantes, estudiante, setEstudiante }) => {
   const [nombre, setNombre] = useState('')
   const [carrera, setCarrera] = useState('')
   const [semestre, setSemestre] = useState('')
@@ -44,26 +44,13 @@ const Formulario = ({ setListaEstudiantes, listaEstudiantes, estudiante }) => {
       semestre,
       promedio
     }
-    // if (Object.keys(estudiante).length !== 0) {
-    //   listaEstudiantes.forEach((element, index) => {
-    //     if (Object.is(element, estudiante)) {
-    //       setListaEstudiantes((nuevaListaEstudiantes) => {
-    //         return nuevaListaEstudiantes.map((element, i) => {
-    //           return i === index ? (element = estudianteGuardado) : element
-    //         })
-    //       })
-    //       limpiarCampos()
-    //     }
-    //   })
-    // } else {
-    //   setListaEstudiantes([...listaEstudiantes, estudianteGuardado])
-    //   limpiarCampos()
-    // }
+    console.log(estudiante.id)
 
     if (estudiante.id) {
       estudianteGuardado.id = estudiante.id
       const estudiantesActualizados = listaEstudiantes.map(estudianteState => estudianteState.id === estudiante.id ? estudianteGuardado : estudianteState)
       setListaEstudiantes(estudiantesActualizados)
+      setEstudiante({})
     } else {
       estudianteGuardado.id = generarID()
       setListaEstudiantes([...listaEstudiantes, estudianteGuardado])

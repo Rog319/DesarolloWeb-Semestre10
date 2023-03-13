@@ -28,6 +28,7 @@ function App () {
           setListaEstudiantes={setListaEstudiantes}
           listaEstudiantes={listaEstudiantes}
           estudiante={estudiante}
+          setEstudiante={setEstudiante}
         />
         <Listado
           setListaEstudiantes={setListaEstudiantes}

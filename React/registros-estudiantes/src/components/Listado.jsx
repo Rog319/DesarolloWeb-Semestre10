@@ -17,6 +17,7 @@ const Listado = ({
           key={key}
           estudiante={estudiante}
           setEstudiante={setEstudiante}
+          listaEstudiantes={listaEstudiantes}
           setListaEstudiantes={setListaEstudiantes}
         />
       ))}
