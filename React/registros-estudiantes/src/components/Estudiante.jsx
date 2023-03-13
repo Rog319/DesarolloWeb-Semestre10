@@ -12,13 +12,7 @@ const Estudiante = ({
         (estudianteAux) => estudianteAux.id !== estudiante.id
       )
     })
-    const estudianteVacio = {
-      nombre: '',
-      carrera: '',
-      semestre: '',
-      promedio: ''
-    }
-    setEstudiante(estudianteVacio)
+    setEstudiante({})
   }
 
   return (
