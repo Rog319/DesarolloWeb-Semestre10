@@ -1,17 +1,17 @@
 import './App.css'
-import styled from '@emotion/styled'
+import imgCrypto from './img/crypto.png'
+import { Container, Imagen, Heading } from './ComponentsStyled'
+import Formulario from './components/Formulario'
 
 function App () {
-  const Heading = styled.h1`
-  font-size: 3em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  `
   return (
-    <div className='App'>
-      <Heading>Hola Mundo</Heading>
-    </div>
+    <Container>
+      <Imagen src={imgCrypto} alt='Logotipo de Crypto' />
+      <div>
+        <Heading>Crypto</Heading>
+        <Formulario />
+      </div>
+    </Container>
   )
 }
 
