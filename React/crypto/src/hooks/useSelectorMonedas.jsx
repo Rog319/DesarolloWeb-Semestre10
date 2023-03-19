@@ -15,19 +15,19 @@ const Select = styled.select`
 `
 
 const useSelectorMonedas = (label, divisas) => {
-  const [state, setState] = useState()
+  const [state, setState] = useState('')
   const SelectorMonedas = () =>
     <>
       <Label>{label}</Label>
       <Select value={state} onChange={e => setState(e.target.value)}>
         <option>Seleccionar una divisa</option>
         {divisas.map(option => (
-          <option key={option.id} value={option.id}>{option.nombre}</option>
+          <option key={option.id} value={option.id}>{option.name}</option>
         ))}
       </Select>
     </>
 
-  return [SelectorMonedas, state]
+  return [state, SelectorMonedas]
 }
 
 export default useSelectorMonedas
