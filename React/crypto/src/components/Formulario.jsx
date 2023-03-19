@@ -71,7 +71,7 @@ const Formulario = () => {
             ariaLabel='blocks-loading'
             wrapperStyle={{}}
             wrapperClass='blocks-wrapper'
-            colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
+            colors={['#55a630', '#bfd200', '#dddf00', '#ffff3f', '#007f5f']}
           />
         : cotizacion && <Precio>{`El precio actualmente es de: ${cotizacion} ${moneda}`}</Precio>}
     </div>
