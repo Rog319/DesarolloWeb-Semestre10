@@ -1,68 +1,80 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import useSelectorMonedas from '../hooks/useSelectorMonedas'
 import { monedas } from '../data/monedas'
+import Error from './Error'
+import Precio from './Precio'
+import { useFetch } from '../hooks/useFetch'
+import { ColorRing } from 'react-loader-spinner'
 
 const InputSubmit = styled.input`
-background-color: #9497FF;
-border: none;
-width: 100%;
-padding: 10px;
-color: #FFFFFF;
-font-weight: 700;
-font-size: 18px;
-border-radius: 5px;
-transition: background-color .3s ease;
-&:hover { 
+  background-color: #9497ff;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  &:hover {
     background-color: #7a7dfe;
-    cursor: pointer; 
-}
+    cursor: pointer;
+  }
 `
 const Formulario = () => {
-  const [cryptos, setCryptos] = useState([])
+  const { cryptos } = useFetch()
   const [error, setError] = useState(false)
-  const [moneda, SelectorMonedas] = useSelectorMonedas('Elige tu moneda', monedas)
-  const [cryptomoneda, SelectorCryptos] = useSelectorMonedas('Elige tu Cryptomoneda', cryptos)
+  const [cotizacion, setCotizacion] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [moneda, SelectorMonedas] = useSelectorMonedas(
+    'Elige tu moneda',
+    monedas
+  )
 
-  useEffect(() => {
-    const consultarApi = async () => {
-      const url = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD'
-      const response = await fetch(url).then(response => response.json())
+  const [cryptomoneda, SelectorCryptos] = useSelectorMonedas(
+    'Elige tu Cryptomoneda',
+    cryptos
+  )
 
-      const arrCryptos = response.Data.map(crypto => {
-        const objCrypto = {
-          id: crypto.CoinInfo.Name,
-          name: crypto.CoinInfo.FullName
-
-        }
-        return objCrypto
-      })
-      setCryptos(arrCryptos)
-    }
-    consultarApi()
-  }, [])
+  const cotizar = async (moneda, crypto) => {
+    setLoading(true)
+    const url = `https://min-api.cryptocompare.com/data/price?fsym=${crypto}&tsyms=${moneda}`
+    const response = await fetch(url).then(response => response.json()).finally(() => setLoading(false))
+    setCotizacion(response[moneda])
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(moneda)
 
     if ([moneda, cryptomoneda].includes('')) {
-      console.log('Debes seleccionar un moneda y un cryptomoneda')
       setError(true)
+      return
     }
-    // setError(false)
+    cotizar(moneda, cryptomoneda)
+    setError(false)
   }
 
   return (
     <div>
-      {error && <p>Todos los campos son obligatorios</p>}
+      {error && <Error>Todos los campos son obligatorios</Error>}
       <form onSubmit={handleSubmit}>
         <SelectorMonedas />
         <SelectorCryptos />
         <InputSubmit type='submit' value='Cotizar' />
       </form>
+      {loading
+        ? <ColorRing
+            visible
+            height='80'
+            width='80'
+            ariaLabel='blocks-loading'
+            wrapperStyle={{}}
+            wrapperClass='blocks-wrapper'
+            colors={['#b8c480', '#B2A3B5', '#F4442E', '#51E5FF', '#429EA6']}
+          />
+        : cotizacion && <Precio>{`El precio actualmente es de: ${cotizacion} ${moneda}`}</Precio>}
     </div>
-
   )
 }
 

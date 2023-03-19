@@ -8,6 +8,7 @@ font-family: 'Poppins', sans-serif;
 font-size: 18px;
 `
 const Select = styled.select`
+  font-family: 'Poppins', sans-serif;
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
